@@ -6,7 +6,7 @@ namespace HarcosProject_BertalanGergo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
