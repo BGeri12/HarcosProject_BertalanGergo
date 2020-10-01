@@ -44,7 +44,17 @@ namespace HarcosProject_BertalanGergo
         public int Tapasztalat { get => tapasztalat; set => tapasztalat = value; }
         public int AlapEletero { get => alapEletero; }
         public int AlapSebzes { get => alapSebzes; }
-        public int Eletero { get => eletero; set => eletero = value; }
+        public int Eletero { get => eletero; 
+         set{ eletero = value;
+                if (eletero == 0)
+                {
+                    Tapasztalat = 0;
+                }
+                if (eletero>MaxEletero)
+                {
+                    eletero = MaxEletero;
+                }
+            } }
         public int Sebzes { get => alapSebzes + szint; }
         public int SzintLepeshez { get => 10 + szint*5; }
         public int MaxEletero { get => AlapEletero + szint*3; }
