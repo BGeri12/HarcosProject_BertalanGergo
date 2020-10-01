@@ -41,11 +41,23 @@ namespace HarcosProject_BertalanGergo
 
         public string Nev { get => nev; set => nev = value; }
         public int Szint { get => szint; set => szint = value; }
-        public int Tapasztalat { get => tapasztalat; set => tapasztalat = value; }
+        public int Tapasztalat { get => tapasztalat;
+            set 
+            { 
+                tapasztalat = value;
+                if (tapasztalat == SzintLepeshez)
+                {
+                    this.Szint = this.szint + 1;
+                }    
+            
+            } 
+        }
         public int AlapEletero { get => alapEletero; }
         public int AlapSebzes { get => alapSebzes; }
         public int Eletero { get => eletero; 
-         set{ eletero = value;
+            set{ 
+                eletero = value;
+                
                 if (eletero == 0)
                 {
                     Tapasztalat = 0;
@@ -54,7 +66,8 @@ namespace HarcosProject_BertalanGergo
                 {
                     eletero = MaxEletero;
                 }
-            } }
+            }
+        }
         public int Sebzes { get => alapSebzes + szint; }
         public int SzintLepeshez { get => 10 + szint*5; }
         public int MaxEletero { get => AlapEletero + szint*3; }
