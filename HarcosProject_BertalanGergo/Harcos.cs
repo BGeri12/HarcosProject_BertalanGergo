@@ -84,7 +84,14 @@ namespace HarcosProject_BertalanGergo
 
         public void Gyogyul()
         {
-
+            if (this.Eletero == 0)
+            {
+                this.Eletero = MaxEletero;
+            }
+            else
+            {
+                this.Eletero = this.Eletero + 3;
+            }
         }
         public override string ToString()
         {
