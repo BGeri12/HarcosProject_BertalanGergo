@@ -51,6 +51,35 @@ namespace HarcosProject_BertalanGergo
 
         public void Megkuzd(Harcos MasikHarcos) 
         {
+            if (MasikHarcos == this)
+            {
+                Console.WriteLine("Hiba: Önmagával nem küzdhet meg !!!");
+            }
+            else if (Eletero == 0 || MasikHarcos.Eletero == 0)
+            {
+                Console.WriteLine("Hiba: 0 az életerő");
+            }
+            else
+            {
+                MasikHarcos.Eletero = MasikHarcos.Eletero - this.Sebzes;
+                if (MasikHarcos.Eletero>0)
+                {
+                    this.Eletero = this.eletero - MasikHarcos.Sebzes;
+                    MasikHarcos.Tapasztalat = MasikHarcos.Tapasztalat + 5;
+                }
+                else
+                {
+                    this.Tapasztalat = this.Tapasztalat + 10;
+                }
+                if (this.Eletero>0)
+                {
+                    this.Tapasztalat = this.Tapasztalat + 5;
+                }
+                else
+                {
+                    MasikHarcos.Tapasztalat = MasikHarcos.Tapasztalat + 10;
+                }
+            }
         }
 
         public void Gyogyul()
