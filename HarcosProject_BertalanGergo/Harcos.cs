@@ -13,24 +13,29 @@ namespace HarcosProject_BertalanGergo
         private int alapEletero;
         private int alapSebzes;
 
-        public Harcos(string nev, int szint, int tapasztalat, int eletero, int alapEletero, int alapSebzes, int statuszSablon)
+        public Harcos(string nev, int statuszSablon)
         {
 
             this.nev = nev;
             szint = 1;
             tapasztalat = 0;
 
-            if (alapEletero == 15)
+            if (statuszSablon == 1)
             {
+                alapEletero = 15;
                 alapSebzes = 3;
-            }else if (alapEletero == 12)
+            }else if (statuszSablon == 2)
             {
+                alapEletero = 12;
                 alapSebzes = 4;
             }
-            else if(alapEletero == 8)
+            else if(statuszSablon == 3)
             {
+                alapEletero = 8;
                 alapSebzes = 5;
             }
+
+            eletero = MaxEletero;
 
         }
 
@@ -41,12 +46,20 @@ namespace HarcosProject_BertalanGergo
         public int AlapSebzes { get => alapSebzes; }
         public int Eletero { get => eletero; set => eletero = value; }
         public int Sebzes { get => alapSebzes + szint; }
-        public int SzintLepeshez { get => 10 + szint * 5; }
-        public int MaxEletero { get => AlapEletero + szint * 3; }
+        public int SzintLepeshez { get => 10 + szint*5; }
+        public int MaxEletero { get => AlapEletero + szint*3; }
 
+        public void Megkuzd(Harcos MasikHarcos) 
+        {
+        }
+
+        public void Gyogyul()
+        {
+
+        }
         public override string ToString()
         {
-            return string.Format("{0} - LVL: {1} - EXP: {2} - HP: {3} - DMG: {4} ",nev,tapasztalat/SzintLepeshez,eletero/MaxEletero,Sebzes);
+            return string.Format("{0} - LVL: {1} - EXP: {2} - HP: {3} - DMG: {4} ",nev,szint,tapasztalat/SzintLepeshez,eletero/MaxEletero,Sebzes);
         }
 
     }
