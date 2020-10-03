@@ -13,10 +13,19 @@ namespace HarcosProject_BertalanGergo
             StatikusFeltoltes();
             Kiir();
             JatekKezdete();
+            KorKiir();
 
             Console.ReadKey();
         }
 
+        private static void KorKiir()
+        {
+            Console.WriteLine("Jatékos Harcosa: {0}", FelhasznaloHarcosa);
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Console.WriteLine("{0} - {1}", i + 1, lista[i]);
+            }
+        }
         private static void JatekKezdete()
         {
             Console.WriteLine();
