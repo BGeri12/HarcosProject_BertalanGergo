@@ -14,10 +14,36 @@ namespace HarcosProject_BertalanGergo
             Kiir();
             JatekKezdete();
             KorKiir();
+            HarcosMegkuzd();
+            
 
             Console.ReadKey();
         }
 
+        private static Harcos HarcosMegkuzd()
+        {
+            int valasz = 0;
+
+            while (valasz == 0)
+            {
+                try
+                {
+                    Console.WriteLine("Válassza ki azt a harcost akivel meg szeretne küzdeni");
+
+                    valasz = int.Parse(Console.ReadLine());
+                    if (valasz < 1 || valasz > lista.Count)
+                    {
+                        Console.WriteLine("Hiba: Ilyen sorszámú harcos nincsen, adjon meg egy másik számot. ");
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Hiba: Nem számot adott meg, adjon meg egy számot.");
+                }
+            }
+            return lista[valasz - 1];
+        }
 
         private static string valasztas()
         {
@@ -35,6 +61,7 @@ namespace HarcosProject_BertalanGergo
         }
         private static void KorKiir()
         {
+            Console.WriteLine();
             Console.WriteLine("Jatékos Harcosa: {0}", FelhasznaloHarcosa);
             for (int i = 0; i < lista.Count; i++)
             {
