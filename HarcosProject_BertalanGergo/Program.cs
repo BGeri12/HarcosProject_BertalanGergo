@@ -14,10 +14,27 @@ namespace HarcosProject_BertalanGergo
             StatikusFeltoltes();
             Kiir();
             JatekKezdete();
+            string valasz;
+            int korSzamol = 0;
+            do
+            {
             KorKiir();
-            HarcosMegkuzd();
-            veletlenEllenseg();
+            valasz = valasztas();
+                if (valasz=="a")
+                {
+                    Harcos ellenseg = HarcosMegkuzd();
+                    FelhasznaloHarcosa.Megkuzd(ellenseg);
+                }
+                else if (valasz == "b")
+                {
+                    FelhasznaloHarcosa.Gyogyul();
+                }
+                Harcos VeletlenEllenseg = veletlenEllenseg();
+                FelhasznaloHarcosa.Megkuzd(VeletlenEllenseg);
+                korSzamol++;
 
+            } while (valasz != "c");
+         
             Console.ReadKey();
         }
 
@@ -54,6 +71,7 @@ namespace HarcosProject_BertalanGergo
 
         private static string valasztas()
         {
+            Console.WriteLine();
             string valasz;
             do
             {
@@ -65,11 +83,12 @@ namespace HarcosProject_BertalanGergo
             } while (!(valasz != "a" || valasz != "b" || valasz != "c"));
 
             return valasz;
+            
         }
         private static void KorKiir()
         {
             Console.WriteLine();
-            Console.WriteLine("Jatékos Harcosa: {0}", FelhasznaloHarcosa);
+            Console.WriteLine("Ön Harcosa: {0}", FelhasznaloHarcosa);
             for (int i = 0; i < lista.Count; i++)
             {
                 Console.WriteLine("{0} - {1}", i + 1, lista[i]);
@@ -78,9 +97,9 @@ namespace HarcosProject_BertalanGergo
         private static void JatekKezdete()
         {
             Console.WriteLine();
-            Console.Write("Kérem adja meg a Harcosa nevét: ");
+            Console.Write("Kérem adja meg az ÖN harcosának nevét: ");
             string nev = Console.ReadLine();
-            Console.Write("Kérem adja meg a státusz sablonját (1 vagy 2 vagy 3): ");
+            Console.Write("Kérem adja meg az ÖN harcosának státusz sablonját (1 vagy 2 vagy 3): ");
             int sablon = int.Parse(Console.ReadLine());
             FelhasznaloHarcosa = new Harcos(nev, sablon);
         }
