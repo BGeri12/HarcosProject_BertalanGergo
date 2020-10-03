@@ -8,6 +8,7 @@ namespace HarcosProject_BertalanGergo
     {
         static List<Harcos> lista = new List<Harcos>();
         static Harcos FelhasznaloHarcosa;
+        static Random rnd = new Random();
         static void Main(string[] args)
         {
             StatikusFeltoltes();
@@ -15,11 +16,17 @@ namespace HarcosProject_BertalanGergo
             JatekKezdete();
             KorKiir();
             HarcosMegkuzd();
-            
+            veletlenEllenseg();
 
             Console.ReadKey();
         }
 
+
+        private static Harcos veletlenEllenseg()
+        {
+            return lista[rnd.Next(lista.Count)];
+
+        }
         private static Harcos HarcosMegkuzd()
         {
             int valasz = 0;
