@@ -18,6 +18,21 @@ namespace HarcosProject_BertalanGergo
             Console.ReadKey();
         }
 
+
+        private static string valasztas()
+        {
+            string valasz;
+            do
+            {
+                Console.WriteLine("Kérem adja meg a választ");
+                Console.WriteLine("a, Megküzdeni egy harcossal");
+                Console.WriteLine("b, Gyógyul");
+                Console.WriteLine("c, Kilép");
+                valasz = Console.ReadLine();
+            } while (!(valasz != "a" || valasz != "b" || valasz != "c"));
+
+            return valasz;
+        }
         private static void KorKiir()
         {
             Console.WriteLine("Jatékos Harcosa: {0}", FelhasznaloHarcosa);
