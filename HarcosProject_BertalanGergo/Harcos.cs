@@ -40,7 +40,17 @@ namespace HarcosProject_BertalanGergo
         }
 
         public string Nev { get => nev; set => nev = value; }
-        public int Szint { get => szint; set => szint = value; }
+        public int Szint { get => szint; 
+            set
+            {
+                if (szint+1 == value && tapasztalat >= SzintLepeshez)
+                {
+                    //Nemtudom hogy mennyi a szükséges tapasztalati pont :-(
+                    szint = value;
+                    Eletero = MaxEletero;
+                }
+            } 
+        }
         public int Tapasztalat { get => tapasztalat;
             set 
             { 
