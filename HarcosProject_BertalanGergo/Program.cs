@@ -7,12 +7,24 @@ namespace HarcosProject_BertalanGergo
     class Program
     {
         static List<Harcos> lista = new List<Harcos>();
+        static Harcos FelhasznaloHarcosa;
         static void Main(string[] args)
         {
             StatikusFeltoltes();
             Kiir();
+            JatekKezdete();
 
             Console.ReadKey();
+        }
+
+        private static void JatekKezdete()
+        {
+            Console.WriteLine();
+            Console.Write("Kérem adja meg a Harcosa nevét: ");
+            string nev = Console.ReadLine();
+            Console.Write("Kérem adja meg a státusz sablonját (1 vagy 2 vagy 3): ");
+            int sablon = int.Parse(Console.ReadLine());
+            FelhasznaloHarcosa = new Harcos(nev, sablon);
         }
 
         private static void Kiir()
