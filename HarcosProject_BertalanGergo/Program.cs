@@ -10,11 +10,18 @@ namespace HarcosProject_BertalanGergo
         static void Main(string[] args)
         {
             StatikusFeltoltes();
-
+            Kiir();
 
             Console.ReadKey();
         }
 
+        private static void Kiir()
+        {
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Console.WriteLine(lista[i]);
+            }
+        }
         private static void StatikusFeltoltes()
         {
             Harcos harcos1 = new Harcos("Jancsi", 2);
